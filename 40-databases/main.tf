@@ -16,6 +16,7 @@ resource "terraform_data" "mongodb" {
   triggers_replace = [
     aws_instance.mongodb.id
   ]
+
   connection {
     type = "ssh"
     user = "ec2-user"
@@ -23,9 +24,16 @@ resource "terraform_data" "mongodb" {
     host = aws_instance.mongodb.private_ip
   }
 
+  # terraform copies this files to mongodb server
+  provisioner "file" {
+    source = "bootstrap.sh"
+    destination = "/tmp/bootstrap.sh"
+  }
+
   provisioner "remote-exec" {
     inline = [
-        "echo Hello World"
+        "chmod +x /tmp/bootstrap.sh"
+        "sudo sh chmod +x /tmp/bootstrap.sh"
     ]
   }
 }
