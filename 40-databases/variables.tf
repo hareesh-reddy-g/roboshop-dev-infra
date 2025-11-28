@@ -23,3 +23,11 @@ variable "sg_names" {
         "open_vpn"
     ]
 }
+
+variable "zone_id" {
+    default = "Z099665035X39GB8IHQAJ"
+}
+
+variable "domain_name" {
+    default = "hareesh.space"
+}
