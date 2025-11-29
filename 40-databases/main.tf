@@ -162,7 +162,7 @@ resource "terraform_data" "mysql" {
         "chmod +x /tmp/bootstrap.sh",
         "sudo sh /tmp/bootstrap.sh mysql dev"
     ]
-  }{
+  }
 }
 
 resource "aws_route53_record" "mongodb" {
