@@ -1,0 +1,2 @@
+for i in 00-vpc/ 10-sg/ 20-bastion/ 30-sg-rules/ 50-backend-alb/ 70-acm/ 80-frontend-alb/; do cd $i; terraformapply -auto-approve; cd .. ;done
+
